@@ -19,7 +19,7 @@
         "service_worker": "background.js"
     },
     "host_permissions": [
-        "http://localhost:8080/*",
+        "http://localhost:8081/*",
         "<all_urls>"
     ],
     "content_security_policy": {

@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./research-assistant
+    container_name: research_backend
+    ports:
+      - "8081:8080"
+    environment:
+      GEMINI_KEY: "AIzaSyDaPGdW8zbBTm8yTe_f59vPK5NvWZBB4jE"
+    networks:
+      - appnet
+
+  frontend:
+    build:
+      context: ./Research-Assistant-Ext
+    container_name: research_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    driver: bridge
